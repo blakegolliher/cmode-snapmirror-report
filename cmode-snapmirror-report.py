@@ -45,8 +45,9 @@ for mirror in smlist.children_get():
 		rate = mirror.child_get_string("relationship-progress")
 		sourcelocation = mirror.child_get_string("source-location")
 		destlocation = mirror.child_get_string("destination-location")
+		laginsecs = mirror.child_get_string("lag-time")
 		print "	%s -> %s : %s : Transferred %s so far. " % (sourcelocation,destlocation,type,rate)
-		print "	State is %s" % mirror.child_get_string("mirror-state")
-		print "	Type is	: %s" % type
-		print "	Snapshot in flight is %s" % mirror.child_get_string("transfer-snapshot")
-		print "	Snapmirror lag is %s" % mirror.child_get_string("lag-time")
+		print "	State			: %s" % mirror.child_get_string("mirror-state")
+		print "	Type			: %s" % type
+		print "	Snapshot in flight	: %s" % mirror.child_get_string("transfer-snapshot")
+		print "	Snapmirror lag		: %s" % timedelta(seconds=int(laginsecs))
