@@ -50,4 +50,7 @@ for mirror in smlist.children_get():
 		print "	State			: %s" % mirror.child_get_string("mirror-state")
 		print "	Type			: %s" % type
 		print "	Snapshot in flight	: %s" % mirror.child_get_string("transfer-snapshot")
-		print "	Snapmirror lag		: %s" % timedelta(seconds=int(laginsecs))
+		if laginsecs == None:
+			print "	Snapmirror lag		: N/A"
+		else:
+			print "	Snapmirror lag		: %s" % timedelta(seconds=int(laginsecs))
