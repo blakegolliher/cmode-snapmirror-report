@@ -42,7 +42,6 @@ print "\nData Protection Snapmirror Relationships for %s : " % filer_name
 for mirror in smlist.children_get():
 	type = mirror.child_get_string("relationship-type")
 	if type == "data_protection":
-		type = mirror.child_get_string("relationship-type")
 		rate = mirror.child_get_string("relationship-progress")
 		sourcelocation = mirror.child_get_string("source-location")
 		destlocation = mirror.child_get_string("destination-location")
